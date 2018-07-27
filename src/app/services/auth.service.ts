@@ -8,12 +8,12 @@ import {environment} from '../../environments/environment';
 })
 export class AuthService {
 
-    private authUrl = `${environment.apiUrl}/api/v1/authentication`;
+    private apiUrl = `${environment.apiDomain}/api/v1/authentication`;
 
     constructor(private http: HttpClient) {
     }
 
     auth(id: string, pass: string): Observable<any> {
-        return this.http.put<any>(this.authUrl, {id: id, password: pass});
+        return this.http.put<any>(this.apiUrl, {id: id, password: pass});
     }
 }
